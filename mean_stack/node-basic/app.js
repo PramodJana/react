@@ -1,21 +1,14 @@
-// const express = require('express')
 
-// const app= express()
-
-// app.get('/',(req,res)=>{
-//     res.send("hey whars up from express");
-// })
-
-// app.listen(3000);
 
 const fs= require('fs');
 const fileName="target.txt";
-// fs.watch(fileName,()=>console.log('File Changed!'));
+
+const errHandler = err => console.log(err);
+
+const dataHandler = data => console.log(data.toString());
 fs.readFile(fileName,(err,data)=>{
-    if(err){
-        console.log(err);
-    }
-    console.log(data.toString());
+    if(err) errHandler(err);
+    dataHandler(data);
 });
 
 console.log("Node js asynchronous programming");
